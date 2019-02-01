@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
-import PlayButton from "AppComponents/Navigation/PlayButton";
+import PlayButton from "./Components/Navigation/PlayButton.js";
 
 export default class App extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
             source={require("./assets/logo.png")}
             style={imageStyle.logo}
           />
-          <br />
+
           <PlayButton />
         </ImageBackground>
       </View>

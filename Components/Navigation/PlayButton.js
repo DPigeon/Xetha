@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { View, Button } from "react-native";
 
 export default class PlayButton extends Component {
   state = {};
+
+  startGame = () => {};
+
   render() {
     return (
       <View>
-        <Button>Play Xetha</Button>
+        <Button title="Play Xetha" onPress={() => this.startGame()} />
       </View>
     );
   }
