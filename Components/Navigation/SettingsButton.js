@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-export default class PlayButton extends Component {
+export default class SettingsButton extends Component {
   state = {};
 
-  startGame = () => {
-    console.log("hi");
-  };
+  handleSettings = () => {};
 
   render() {
     return (
       <View style={buttonStyles.Container}>
-        <TouchableOpacity onPress={() => this.startGame()}>
-          <Text style={buttonStyles.Button}>Play</Text>
+        <TouchableOpacity onPress={() => this.handleSettings()}>
+          <Text style={buttonStyles.Button}>Settings</Text>
         </TouchableOpacity>
       </View>
     );
@@ -22,7 +20,7 @@ export default class PlayButton extends Component {
 const buttonStyles = StyleSheet.create({
   Container: {
     position: "relative",
-    bottom: -275,
+    bottom: -300,
     width: "90%",
     left: 18
   },

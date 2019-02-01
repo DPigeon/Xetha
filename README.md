@@ -6,4 +6,4 @@ Xetha is a mobile app game created with React-Native &amp; Expo.
 
 - React-Native
 - Expo
-- React-Navitation (For navigation)
+- React-Navigation (For navigation)
