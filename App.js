@@ -1,17 +1,17 @@
 import React from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  ImageBackground,
-  Image
-} from "react-native";
+import { StyleSheet, View, ImageBackground, Image } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import SettingsScreen from "./Components/Settings.js";
 import PlayButton from "./Components/Navigation/PlayButton.js";
 import SettingsButton from "./Components/Navigation/SettingsButton.js";
 import AboutButton from "./Components/Navigation/AboutButton.js";
 
-export default class App extends React.Component {
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: "Xetha"
+  };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles}>
         <ImageBackground
@@ -23,8 +23,8 @@ export default class App extends React.Component {
             style={imageStyle.logo}
           />
           <PlayButton />
-          <SettingsButton />
-          <AboutButton />
+          <SettingsButton navigate={navigate("Settings")} />
+          <AboutButton navigate={navigate("About")} />
         </ImageBackground>
       </View>
     );
@@ -48,3 +48,9 @@ const imageStyle = StyleSheet.create({
     left: -18
   }
 });
+
+const AppNavigator = createStackNavigator({
+  Home: HomeScreen
+});
+
+export default createAppContainer(AppNavigator);

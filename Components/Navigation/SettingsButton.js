@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-export default class SettingsButton extends Component {
+class SettingsButton extends Component {
   state = {};
 
   handleSettings = () => {};
@@ -37,3 +37,5 @@ const buttonStyles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default SettingsButton;
