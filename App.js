@@ -5,8 +5,8 @@ import PlayButton from "./Components/Navigation/PlayButton.js";
 import SettingsButton from "./Components/Navigation/SettingsButton.js";
 import AboutButton from "./Components/Navigation/AboutButton.js";
 import Settings from "./Components/Navigation/Modules/Settings.js";
-import About from "./Components/Navigation/Modules/About";
-import Play from "./Components/Navigation/Modules/Play";
+import About from "./Components/Navigation/Modules/About.js";
+import Play from "./Components/Navigation/Modules/Play.js";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {

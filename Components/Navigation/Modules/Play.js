@@ -1,14 +1,72 @@
-import React, { Component } from "react";
-import { Text, View } from "react-native";
+import React from "react"; // PureComponent does the ComponentShouldUpdate automatically
+import { Dimensions, StyleSheet, StatusBar } from "react-native";
+import { GameEngine } from "react-native-game-engine";
+import Matter from "matter-js";
+import Box from "../Game/Box.js";
 
-class Settings extends Component {
+const { width, height } = Dimensions.get("screen");
+const boxSize = Math.trunc(Math.max(width, height) * 0.075);
+const initialBox = Matter.Bodies.rectangle(
+  width / 2,
+  height / 2,
+  boxSize,
+  boxSize
+);
+const floor = Matter.Bodies.rectangle(
+  width / 2,
+  height - boxSize / 2,
+  width,
+  boxSize,
+  { isStatic: true }
+); // static: object moves or not
+const engine = Matter.Engine.create({ enableSleeping: false }); // Creates new physics engine
+const world = engine.world; // Creates a world that contains all simulated bodies & contraints
+Matter.World.add(world, [initialBox, floor]); // Add the items to the world
+
+const Physics = (entities, { time }) => {
+  // Object of entities and a timer to it
+  let engine = entities["physics"].engine;
+  Matter.Engine.update(engine, time.delta); // Updates local variable every delta change
+  return entities;
+};
+
+export default class Play extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
   render() {
     return (
-      <View>
-        <Text>Beginning the game...</Text>
-      </View>
+      <GameEngine
+        style={styles.container}
+        systems={[Physics]}
+        entities={{
+          physics: {
+            engine: engine,
+            world: world
+          },
+          initialBox: {
+            body: initialBox,
+            size: [boxSize, boxSize],
+            color: "blue",
+            renderer: Box
+          },
+          floor: {
+            body: floor,
+            size: [width, boxSize],
+            color: "green",
+            renderer: Box
+          }
+        }}
+      >
+        <StatusBar hidden={true} />
+      </GameEngine>
     );
   }
 }
 
-export default Settings;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  }
+});

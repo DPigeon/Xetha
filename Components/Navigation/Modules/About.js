@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 
-class Settings extends Component {
-  state = {};
+class About extends Component {
   render() {
     return (
       <View>
@@ -12,4 +11,4 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+export default About;
