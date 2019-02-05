@@ -2,16 +2,10 @@ import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
 export default class PlayButton extends Component {
-  state = {};
-
-  startGame = () => {
-    console.log("hi");
-  };
-
   render() {
     return (
       <View style={buttonStyles.Container}>
-        <TouchableOpacity onPress={() => this.startGame()}>
+        <TouchableOpacity onPress={this.props.navigate}>
           <Text style={buttonStyles.Button}>Play</Text>
         </TouchableOpacity>
       </View>

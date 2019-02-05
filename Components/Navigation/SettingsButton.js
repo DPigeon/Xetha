@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
 class SettingsButton extends Component {
-  state = {};
-
-  handleSettings = () => {};
-
   render() {
     return (
       <View style={buttonStyles.Container}>
-        <TouchableOpacity onPress={() => this.handleSettings()}>
+        <TouchableOpacity onPress={this.props.navigate}>
           <Text style={buttonStyles.Button}>Settings</Text>
         </TouchableOpacity>
       </View>

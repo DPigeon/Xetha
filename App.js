@@ -1,14 +1,17 @@
 import React from "react";
 import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import SettingsScreen from "./Components/Settings.js";
 import PlayButton from "./Components/Navigation/PlayButton.js";
 import SettingsButton from "./Components/Navigation/SettingsButton.js";
 import AboutButton from "./Components/Navigation/AboutButton.js";
+import Settings from "./Components/Navigation/Modules/Settings.js";
+import About from "./Components/Navigation/Modules/About";
+import Play from "./Components/Navigation/Modules/Play";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: "Xetha"
+    title: "Xetha",
+    header: null // Puts white bar away
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -22,9 +25,9 @@ class HomeScreen extends React.Component {
             source={require("./assets/logo.png")}
             style={imageStyle.logo}
           />
-          <PlayButton />
-          <SettingsButton navigate={navigate("Settings")} />
-          <AboutButton navigate={navigate("About")} />
+          <PlayButton navigate={() => navigate("Play")} />
+          <SettingsButton navigate={() => navigate("Settings")} />
+          <AboutButton navigate={() => navigate("About")} />
         </ImageBackground>
       </View>
     );
@@ -50,7 +53,10 @@ const imageStyle = StyleSheet.create({
 });
 
 const AppNavigator = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  Settings: Settings,
+  About: About,
+  Play: Play
 });
 
 export default createAppContainer(AppNavigator);
