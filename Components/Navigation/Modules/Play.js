@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, StatusBar } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 import Matter from "matter-js";
 import Box from "../Game/Box.js";
+import Physics from "../Game/Physics";
 
 const { width, height } = Dimensions.get("screen");
 const boxSize = Math.trunc(Math.max(width, height) * 0.075);
@@ -22,13 +23,6 @@ const floor = Matter.Bodies.rectangle(
 const engine = Matter.Engine.create({ enableSleeping: false }); // Creates new physics engine
 const world = engine.world; // Creates a world that contains all simulated bodies & contraints
 Matter.World.add(world, [initialBox, floor]); // Add the items to the world
-
-const Physics = (entities, { time }) => {
-  // Object of entities and a timer to it
-  let engine = entities["physics"].engine;
-  Matter.Engine.update(engine, time.delta); // Updates local variable every delta change
-  return entities;
-};
 
 /* Touching to Create Boxes*/
 let boxIds = 0;
