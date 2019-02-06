@@ -21,7 +21,7 @@ export const CreateBox = (entities, { touches, screen }) => {
         t.event.pageY,
         boxSize,
         boxSize,
-        { frictionAir: 0.021, restitution: 1.0 } // Restitution: defines elasticity (bouncing)
+        { frictionAir: 0.021, restitution: 0.5 } // Restitution: defines elasticity (bouncing)
       );
       Matter.World.add(world, [body]);
       entities[++boxIds] = {

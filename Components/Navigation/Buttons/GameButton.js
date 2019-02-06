@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-export default class PlayButton extends Component {
+class SettingsButton extends Component {
   render() {
     return (
       <View style={buttonStyles.Container}>
         <TouchableOpacity onPress={this.props.navigate}>
-          <Text style={buttonStyles.Button}>Play Beta</Text>
+          <Text style={buttonStyles.Button}>Play</Text>
         </TouchableOpacity>
       </View>
     );
@@ -16,7 +16,7 @@ export default class PlayButton extends Component {
 const buttonStyles = StyleSheet.create({
   Container: {
     position: "relative",
-    bottom: -250,
+    bottom: -275,
     width: "90%",
     left: 18
   },
@@ -33,3 +33,5 @@ const buttonStyles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default SettingsButton;

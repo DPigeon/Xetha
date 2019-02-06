@@ -4,9 +4,11 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import PlayButton from "./Components/Navigation/Buttons/PlayButton.js";
 import SettingsButton from "./Components/Navigation/Buttons/SettingsButton.js";
 import AboutButton from "./Components/Navigation/Buttons/AboutButton.js";
+import GameButton from "./Components/Navigation/Buttons/GameButton.js";
 import Settings from "./Components/Navigation/Modules/Settings.js";
 import About from "./Components/Navigation/Modules/About.js";
 import Play from "./Components/Navigation/Modules/Play.js";
+import GamePlay from "./Components/Navigation/Modules/GamePlay.js";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -25,7 +27,8 @@ class HomeScreen extends React.Component {
             source={require("./assets/logo.png")}
             style={imageStyle.logo}
           />
-          <PlayButton navigate={() => navigate("Play")} />
+          <PlayButton navigate={() => navigate("PlayBeta")} />
+          <GameButton navigate={() => navigate("Play")} />
           <SettingsButton navigate={() => navigate("Settings")} />
           <AboutButton navigate={() => navigate("About")} />
         </ImageBackground>
@@ -56,7 +59,8 @@ const AppNavigator = createStackNavigator({
   Home: HomeScreen,
   Settings: Settings,
   About: About,
-  Play: Play
+  PlayBeta: Play,
+  Play: GamePlay
 });
 
 export default createAppContainer(AppNavigator);
