@@ -2,9 +2,15 @@ import React from "react";
 import { Dimensions, StyleSheet, StatusBar } from "react-native";
 import { GameEngine } from "react-native-game-engine";
 import Matter from "matter-js";
-import Box from "../Game/Box.js";
-import Physics, { CreateBox } from "../Game/Physics";
-import { boxSize, initialBox, floor, engine, world } from "../Game/Entities";
+import Box from "../../Game/Box.js";
+import Physics, { CreateBox } from "../../Game/Physics.js";
+import {
+  boxSize,
+  initialBox,
+  floor,
+  engine,
+  world
+} from "../../Game/Entities.js";
 
 const { width, height } = Dimensions.get("screen");
 Matter.World.add(world, [initialBox, floor]); // Add the items to the world

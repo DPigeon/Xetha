@@ -1,5 +1,5 @@
 import Matter from "matter-js";
-import Box from "../Game/Box";
+import Box from "./Box.js";
 
 const Physics = (entities, { time }) => {
   // Object of entities and a timer to it

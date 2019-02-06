@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import PlayButton from "./Components/Navigation/PlayButton.js";
-import SettingsButton from "./Components/Navigation/SettingsButton.js";
-import AboutButton from "./Components/Navigation/AboutButton.js";
+import PlayButton from "./Components/Navigation/Buttons/PlayButton.js";
+import SettingsButton from "./Components/Navigation/Buttons/SettingsButton.js";
+import AboutButton from "./Components/Navigation/Buttons/AboutButton.js";
 import Settings from "./Components/Navigation/Modules/Settings.js";
 import About from "./Components/Navigation/Modules/About.js";
 import Play from "./Components/Navigation/Modules/Play.js";
