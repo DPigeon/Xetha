@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, Alert, View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 
 class GamePlay extends Component {
@@ -20,7 +20,8 @@ class GamePlay extends Component {
   }
 
   initializeGame = () => {
-    this.setState({ gameState: [[0, 0, 0], [0, 0, 0], [0, 0, 0]] });
+    // Player is set to 1 to begin
+    this.setState({ gameState: [[0, 0, 0], [0, 0, 0], [0, 0, 0]], player: 1 });
   };
 
   renderIcon = (row, column) => {
@@ -36,17 +37,58 @@ class GamePlay extends Component {
   };
 
   handlePress = (row, column) => {
-    const value = this.state.gameState[row][column];
+    var value = this.state.gameState[row][column];
     if (value !== 0) return; // No touching same tile
 
-    const player = this.state.player;
-    const array = this.state.gameState.slice();
+    var player = this.state.player;
+    var array = this.state.gameState.slice();
     array[row][column] = player;
     this.setState({ gameState: array });
     // For other player
-    const nextPlayer = player === 1 ? -1 : 1;
+    var nextPlayer = player == 1 ? -1 : 1;
     this.setState({ player: nextPlayer });
+
+    // Checks if there is a winner
+    var winner = this.gameWinner();
+    console.log(winner);
+    if (winner === 1) {
+      Alert.alert("Player 1 won !");
+      this.initializeGame();
+    } else if (winner === -1) {
+      Alert.alert("Player 2 won !");
+      this.initializeGame();
+    }
   };
+
+  gameWinner() {
+    const tiles = 3;
+    var array = this.state.gameState;
+    var sum;
+
+    for (var i = 0; i < tiles; i++) {
+      sum = array[i][0] + array[i][1] + array[i][2];
+      // if the sum is 3, player 1 won
+      if (sum == 3) return 1;
+      // if the sum is -3, player 2 won
+      else if (sum == -3) return -1;
+    }
+
+    for (var i = 0; i < tiles; i++) {
+      sum = array[0][i] + array[1][i] + array[2][i];
+      if (sum == 3) return 1;
+      else if (sum == -3) return -1;
+    }
+
+    sum = array[0][0] + array[1][1] + array[2][2];
+    if (sum == 3) return 1;
+    else if (sum == -3) return -1;
+
+    sum = array[2][0] + array[1][1] + array[0][2];
+    if (sum == 3) return 1;
+    else if (sum == -3) return -1;
+
+    return 0;
+  }
 
   render() {
     return (
@@ -116,6 +158,12 @@ class GamePlay extends Component {
             {this.renderIcon(2, 2)}
           </TouchableOpacity>
         </View>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+        <TouchableOpacity onPress={() => this.initializeGame()}>
+          <Text style={styles.Button}>New Game</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -142,5 +190,17 @@ const styles = StyleSheet.create({
   tileO: {
     color: "lime",
     fontSize: 60
+  },
+  Button: {
+    backgroundColor: "#2d594d",
+    borderColor: "white",
+    borderWidth: 1,
+    borderRadius: 50,
+    color: "white",
+    fontSize: 27,
+    fontWeight: "bold",
+    overflow: "hidden",
+    padding: 12,
+    textAlign: "center"
   }
 });
