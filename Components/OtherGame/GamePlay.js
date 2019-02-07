@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import GameInterface from "./GameInterface";
+import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 
 class GamePlay extends Component {
   static navigationOptions = {
@@ -60,6 +61,35 @@ class GamePlay extends Component {
     }
   };
 
+  spawnRamdom() {
+    var randomX = random(0, 4);
+    var randomY = random(0, 4);
+
+    // Monster 1:
+    <Icon name="ghost" style={styles.tileGhost} />;
+
+    // Monster 2:
+    <Icon name="space-invaders" style={styles.tileSpace} />;
+
+    // Monster 3:
+    <Icon name="snowman" style={styles.tileSnowman} />;
+
+    // Multi-touch
+    <Icon name="gesture-spread" style={styles.tileMultitouch} />;
+
+    // Target:
+    <Icon name="crosshairs-gps" style={styles.tileTarget} />;
+
+    // Snowflake
+    <Icon name="snowflake" style={styles.tileSnowflake} />;
+
+    //Boxing Glove
+    <Icon name="boxing-glove" style={styles.tileBoxing} />;
+
+    // Wii (Just kidding keep on playing HAHA)
+    <Icon name="wii" style={styles.tileWii} />;
+  }
+
   gameWinner() {
     const tiles = 3;
     var array = this.state.gameState;
@@ -101,3 +131,38 @@ class GamePlay extends Component {
 }
 
 export default GamePlay;
+
+const styles = StyleSheet.create({
+  tileGhost: {
+    color: "brown",
+    fontSize: 60
+  },
+  tileSpace: {
+    color: "purple",
+    fontSize: 60
+  },
+  tileSnowman: {
+    color: "blue",
+    fontSize: 60
+  },
+  tileMultitouch: {
+    color: "gray",
+    fontSize: 60
+  },
+  tileTarget: {
+    color: "red",
+    fontSize: 60
+  },
+  tileSnowflake: {
+    color: "cyan",
+    fontSize: 60
+  },
+  tileBoxing: {
+    color: "red",
+    fontSize: 60
+  },
+  tileWii: {
+    color: "lime",
+    fontSize: 60
+  }
+});
