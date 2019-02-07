@@ -10,7 +10,13 @@ class GamePlay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameState: [[0, 0, 0], [0, 0, 0], [0, 0, 0]], // The board this.state
+      gameState: [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+      ], // The board this.state
       player: 1 // Player 1: 1, Player 2: -1
     };
   }
@@ -21,7 +27,16 @@ class GamePlay extends Component {
 
   initializeGame = () => {
     // Player is set to 1 to begin
-    this.setState({ gameState: [[0, 0, 0], [0, 0, 0], [0, 0, 0]], player: 1 });
+    this.setState({
+      gameState: [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+      ],
+      player: 1
+    });
   };
 
   handlePress = (row, column) => {
