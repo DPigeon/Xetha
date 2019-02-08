@@ -5,11 +5,39 @@ import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 class GameInterface extends Component {
   renderIcon = (row, column) => {
     var value = this.props.gameState[row][column];
+    var randomIcon = Math.floor(Math.random() * 8);
     switch (value) {
       case 1:
         return <Icon name="circle-outline" style={styles.tileO} />; // Player
       case -1:
-        return <Icon name="close" style={styles.tileX} />; // Enemy
+        switch (randomIcon) {
+          case 0:
+            // Monster 1:
+            return <Icon name="ghost" style={styles.tileGhost} />;
+          case 1:
+            // Monster 2:
+            return <Icon name="duck" style={styles.tileDuck} />;
+          case 2:
+            // Monster 3:
+            return <Icon name="snowman" style={styles.tileSnowman} />;
+          case 3:
+            // Multi-touch
+            return <Icon name="gesture-spread" style={styles.tileMultitouch} />;
+          case 4:
+            // Target:
+            return <Icon name="crosshairs-gps" style={styles.tileTarget} />;
+          case 5:
+            // Snowflake
+            return <Icon name="snowflake" style={styles.tileSnowflake} />;
+          case 6:
+            //Energy
+            return <Icon name="flash" style={styles.tileEnergy} />;
+          case 7:
+            // Wii (Just kidding keep on playing HAHA)
+            return <Icon name="wii" style={styles.tileWii} />;
+          default:
+            <View />;
+        }
       default:
         return <View />;
     }
@@ -219,11 +247,39 @@ const styles = StyleSheet.create({
     width: 65,
     height: 65
   },
-  tileX: {
+  tileO: {
+    color: "lime",
+    fontSize: 60
+  },
+  tileGhost: {
+    color: "brown",
+    fontSize: 60
+  },
+  tileDuck: {
+    color: "purple",
+    fontSize: 60
+  },
+  tileSnowman: {
+    color: "blue",
+    fontSize: 60
+  },
+  tileMultitouch: {
+    color: "gray",
+    fontSize: 60
+  },
+  tileTarget: {
     color: "red",
     fontSize: 60
   },
-  tileO: {
+  tileSnowflake: {
+    color: "cyan",
+    fontSize: 60
+  },
+  tileEnergy: {
+    color: "red",
+    fontSize: 60
+  },
+  tileWii: {
     color: "lime",
     fontSize: 60
   },
