@@ -7,9 +7,9 @@ class GameInterface extends Component {
     var value = this.props.gameState[row][column];
     switch (value) {
       case 1:
-        return <Icon name="water" style={styles.tileX} />; // Player 1
+        return <Icon name="circle-outline" style={styles.tileO} />; // Player
       case -1:
-        return <Icon name="circle-outline" style={styles.tileO} />; // Player -1
+        return <Icon name="close" style={styles.tileX} />; // Enemy
       default:
         return <View />;
     }

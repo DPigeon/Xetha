@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { Alert, StyleSheet } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import GameInterface from "./GameInterface";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
+
+/* Global Variables */
+let interval;
+let intervalTime = 2000; // 2 Seconds interval between spawns (make it random later ?)
 
 class GamePlay extends Component {
   static navigationOptions = {
@@ -18,12 +22,23 @@ class GamePlay extends Component {
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0]
       ], // The board this.state
-      player: 1 // Player 1: 1, Player 2: -1
+      player: 1, // Player 1: 1, Enemy (Game): -1
+      gameRestarted: false
     };
   }
 
   componentDidMount() {
     this.initializeGame(); // Begin game
+    interval = setInterval(() => {
+      this.spawnRandom(
+        Math.floor(Math.random() * 4),
+        Math.floor(Math.random() * 4)
+      );
+    }, intervalTime);
+  }
+
+  componentWillUnmount() {
+    clearInterval(interval);
   }
 
   initializeGame = () => {
@@ -36,20 +51,26 @@ class GamePlay extends Component {
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0]
       ],
-      player: 1
+      player: 1,
+      gameRestarted: true
     });
   };
+
+  updateGame(gameState) {
+    var array = gameState.slice();
+    this.setState({ gameState: array });
+  }
 
   handlePress = (row, column) => {
     var value = this.state.gameState[row][column];
     if (value !== 0) return; // No touching same tile
     var player = this.state.player;
+
+    // Updates but with the player too
     var array = this.state.gameState.slice();
     array[row][column] = player;
     this.setState({ gameState: array });
-    // For other player
-    var nextPlayer = player == 1 ? -1 : 1;
-    this.setState({ player: nextPlayer });
+
     // Checks if there is a winner
     var winner = this.gameWinner();
     if (winner === 1) {
@@ -61,33 +82,39 @@ class GamePlay extends Component {
     }
   };
 
-  spawnRamdom() {
-    var randomX = random(0, 4);
-    var randomY = random(0, 4);
-
-    // Monster 1:
-    <Icon name="ghost" style={styles.tileGhost} />;
-
-    // Monster 2:
-    <Icon name="space-invaders" style={styles.tileSpace} />;
-
-    // Monster 3:
-    <Icon name="snowman" style={styles.tileSnowman} />;
-
-    // Multi-touch
-    <Icon name="gesture-spread" style={styles.tileMultitouch} />;
-
-    // Target:
-    <Icon name="crosshairs-gps" style={styles.tileTarget} />;
-
-    // Snowflake
-    <Icon name="snowflake" style={styles.tileSnowflake} />;
-
-    //Boxing Glove
-    <Icon name="boxing-glove" style={styles.tileBoxing} />;
-
-    // Wii (Just kidding keep on playing HAHA)
-    <Icon name="wii" style={styles.tileWii} />;
+  spawnRandom(row, column) {
+    var enemyTile = -1;
+    this.state.gameState[row][column] = enemyTile; // Setting the tile to the game (enemy)
+    var randomIcon = Math.floor(Math.random() * 8);
+    this.updateGame(this.state.gameState);
+    switch (randomIcon) {
+      case 0:
+        // Monster 1:
+        return <Icon name="ghost" style={styles.tileGhost} />;
+      case 1:
+        // Monster 2:
+        return <Icon name="duck" style={styles.tileDuck} />;
+      case 2:
+        // Monster 3:
+        return <Icon name="snowman" style={styles.tileSnowman} />;
+      case 3:
+        // Multi-touch
+        return <Icon name="gesture-spread" style={styles.tileMultitouch} />;
+      case 4:
+        // Target:
+        return <Icon name="crosshairs-gps" style={styles.tileTarget} />;
+      case 5:
+        // Snowflake
+        return <Icon name="snowflake" style={styles.tileSnowflake} />;
+      case 6:
+        //Energy
+        return <Icon name="flash" style={styles.tileEnergy} />;
+      case 7:
+        // Wii (Just kidding keep on playing HAHA)
+        return <Icon name="wii" style={styles.tileWii} />;
+      default:
+        <View />;
+    }
   }
 
   gameWinner() {
@@ -137,7 +164,7 @@ const styles = StyleSheet.create({
     color: "brown",
     fontSize: 60
   },
-  tileSpace: {
+  tileDuck: {
     color: "purple",
     fontSize: 60
   },
@@ -157,7 +184,7 @@ const styles = StyleSheet.create({
     color: "cyan",
     fontSize: 60
   },
-  tileBoxing: {
+  tileEnergy: {
     color: "red",
     fontSize: 60
   },
