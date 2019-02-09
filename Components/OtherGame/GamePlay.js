@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, StyleSheet } from "react-native";
+import { Alert } from "react-native";
 import GameInterface from "./GameInterface";
 
 /* Global Variables */
@@ -62,7 +62,9 @@ class GamePlay extends Component {
 
   handlePress = (row, column) => {
     var value = this.state.gameState[row][column];
-    if (value !== 0) return; // No touching same tile
+    if (value === 0) {
+      // Ghost
+    }
     var player = this.state.player;
 
     // Updates but with the player too

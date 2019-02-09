@@ -41,6 +41,8 @@ class GameInterface extends Component {
       default:
         return <View />;
     }
+    // Assign new icon value to the array
+    randomIcon = this.props.gameState[row][column];
   };
 
   render() {

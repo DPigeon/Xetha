@@ -9,6 +9,7 @@ import Settings from "./Components/Navigation/Modules/Settings.js";
 import About from "./Components/Navigation/Modules/About.js";
 import Play from "./Components/Navigation/Modules/Play.js";
 import GamePlay from "./Components/OtherGame/GamePlay.js";
+import StartAnimation from "./Components/StartAnimation";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -23,7 +24,7 @@ class HomeScreen extends React.Component {
           source={require("./assets/background.png")}
           style={{ width: "100%", height: "100%" }}
         >
-          <Image
+          <StartAnimation
             source={require("./assets/logo.png")}
             style={imageStyle.logo}
           />
