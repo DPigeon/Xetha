@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
+import PointsButton from "./PointsButton";
 
 class GameInterface extends Component {
   renderIcon = (row, column) => {
@@ -41,8 +42,6 @@ class GameInterface extends Component {
       default:
         return <View />;
     }
-    // Assign new icon value to the array
-    randomIcon = this.props.gameState[row][column];
   };
 
   render() {
@@ -222,14 +221,13 @@ class GameInterface extends Component {
             {this.renderIcon(4, 4)}
           </TouchableOpacity>
         </View>
-
-        <Text> </Text>
-        <Text> </Text>
-        <Text> </Text>
-
-        <TouchableOpacity onPress={() => this.props.initializeGame()}>
+        <TouchableOpacity
+          style={styles.ButtonPosition}
+          onPress={() => this.props.initializeGame()}
+        >
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
+        <PointsButton />
       </View>
     );
   }
@@ -291,10 +289,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 50,
     color: "white",
-    fontSize: 27,
+    fontSize: 17,
     fontWeight: "bold",
     overflow: "hidden",
     padding: 12,
     textAlign: "center"
+  },
+  ButtonPosition: {
+    bottom: -123,
+    right: 0
   }
 });

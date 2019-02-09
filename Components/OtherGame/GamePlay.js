@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Alert } from "react-native";
 import GameInterface from "./GameInterface";
+import PointsButton from "./PointsButton";
 
 /* Global Variables */
 let interval;
@@ -8,7 +9,7 @@ let intervalTime = 2000; // 2 Seconds interval between spawns (make it random la
 
 class GamePlay extends Component {
   static navigationOptions = {
-    title: "Tic Tac Toe"
+    title: "Yo You Gonna Lose..." // Change title according to what player does later (you suck, you an do better, ect)
   };
 
   constructor(props) {
@@ -24,6 +25,7 @@ class GamePlay extends Component {
       player: 1, // Player 1: 1, Enemy (Game): -1
       gameRestarted: false
     };
+    this.pointButton = new PointsButton();
   }
 
   componentDidMount() {
