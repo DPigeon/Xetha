@@ -227,7 +227,7 @@ class GameInterface extends Component {
         >
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
-        <PointsButton />
+        <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
     );
   }

@@ -7,34 +7,38 @@ class PointsButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      points: 0,
-      taps: []
+      points: this.props.points,
+      taps: this.props.taps
     };
   }
 
   tap = () => {
-    let points = this.state.points;
-    let taps = this.state.taps;
+    let points = this.props.points;
+    let taps = this.props.taps;
     points++;
     taps.push(points); // Array to keep track of points
     this.setState({ points });
   };
 
   renderTaps() {
-    return this.state.taps.map((point, id) => (
-      <PointsBubble key={id} points={point} />
+    return this.props.taps.map((point, id) => (
+      <PointsBubble
+        key={id}
+        points={point}
+        animationComplete={this.animationComplete}
+      />
     ));
   }
 
-  animationComplete(tapNum) {
-    taps = this.state.taps;
+  animationComplete = tapNum => {
+    taps = this.props.taps;
     taps.splice(taps.indexOf(tapNum), 1);
     this.setState({ taps });
-  }
+  };
 
   render() {
     let pointIcon =
-      this.state.points > 0 ? (
+      this.props.points > 0 ? (
         <Icon name="arrow-collapse-up" style={styles.iconPoints} />
       ) : (
         <Icon name="arrow-expand-up" style={styles.iconPoints} />
@@ -42,7 +46,7 @@ class PointsButton extends Component {
     return (
       <View style={{ flex: 1 }}>
         <TouchableOpacity
-          onPress={() => this.tap()}
+          //onPress={() => this.tap()}
           activeOpacity={0.7}
           style={styles.pointsButton}
         >

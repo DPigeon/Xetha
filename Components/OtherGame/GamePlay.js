@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Alert } from "react-native";
 import GameInterface from "./GameInterface";
-import PointsButton from "./PointsButton";
 
 /* Global Variables */
 let interval;
@@ -23,9 +22,10 @@ class GamePlay extends Component {
         [0, 0, 0, 0, 0]
       ], // The board this.state
       player: 1, // Player 1: 1, Enemy (Game): -1
-      gameRestarted: false
+      gameRestarted: false,
+      points: 0,
+      taps: []
     };
-    this.pointButton = new PointsButton();
   }
 
   componentDidMount() {
@@ -53,7 +53,9 @@ class GamePlay extends Component {
         [0, 0, 0, 0, 0]
       ],
       player: 1,
-      gameRestarted: true
+      gameRestarted: true,
+      points: 0,
+      taps: []
     });
   };
 
@@ -62,10 +64,18 @@ class GamePlay extends Component {
     this.setState({ gameState: array });
   }
 
+  tap = () => {
+    let points = this.state.points;
+    let taps = this.state.taps;
+    points++;
+    taps.push(points); // Array to keep track of points
+    this.setState({ points });
+  };
+
   handlePress = (row, column) => {
     var value = this.state.gameState[row][column];
-    if (value === 0) {
-      // Ghost
+    if (value === -1) {
+      this.tap();
     }
     var player = this.state.player;
 
@@ -126,6 +136,8 @@ class GamePlay extends Component {
         gameState={this.state.gameState}
         handlePress={this.handlePress}
         initializeGame={this.initializeGame}
+        points={this.state.points}
+        taps={this.state.taps}
       />
     );
   }

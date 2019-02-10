@@ -21,7 +21,11 @@ class PointsBubble extends Component {
         toValue: 1,
         duration: 500
       })
-    ]).start();
+    ]).start(() => {
+      setTimeout(() => {
+        this.props.animationComplete(this.props.points);
+      }, 1000);
+    });
   }
 
   render() {
