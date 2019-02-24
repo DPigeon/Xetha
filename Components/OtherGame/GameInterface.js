@@ -9,7 +9,7 @@ class GameInterface extends Component {
     var randomIcon = Math.floor(Math.random() * 8);
     switch (value) {
       case 1:
-        return <Icon name="circle-outline" style={styles.tileO} />; // Player
+        return <View />; // Player
       case -1:
         switch (randomIcon) {
           case 0:
@@ -246,10 +246,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 65,
     height: 65
-  },
-  tileO: {
-    color: "lime",
-    fontSize: 60
   },
   tileGhost: {
     color: "brown",

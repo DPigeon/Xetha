@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsBubble from "./PointsBubble";
 
@@ -12,12 +12,8 @@ class PointsButton extends Component {
     };
   }
 
-  tap = () => {
-    let points = this.props.points;
-    let taps = this.props.taps;
-    points++;
-    taps.push(points); // Array to keep track of points
-    this.setState({ points });
+  scoreTap = () => {
+    Alert.alert(`Your current score is ${this.props.points}.`);
   };
 
   renderTaps() {
@@ -46,7 +42,7 @@ class PointsButton extends Component {
     return (
       <View style={{ flex: 1 }}>
         <TouchableOpacity
-          //onPress={() => this.tap()}
+          onPress={() => this.scoreTap()}
           activeOpacity={0.7}
           style={styles.pointsButton}
         >

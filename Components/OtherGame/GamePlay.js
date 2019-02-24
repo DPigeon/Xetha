@@ -77,7 +77,7 @@ class GamePlay extends Component {
     if (value === -1) {
       this.tap();
     }
-    var player = this.state.player;
+    if (value === -1) var player = this.state.player;
 
     // Updates but with the player too
     var array = this.state.gameState.slice();
@@ -85,14 +85,14 @@ class GamePlay extends Component {
     this.setState({ gameState: array });
 
     // Checks if there is a winner
-    var winner = this.gameWinner();
+    /*var winner = this.gameWinner();
     if (winner === 1) {
       Alert.alert("X's won !");
       this.initializeGame();
     } else if (winner === -1) {
       Alert.alert("O's won !");
       this.initializeGame();
-    }
+    }*/
   };
 
   spawnRandom(row, column) {
