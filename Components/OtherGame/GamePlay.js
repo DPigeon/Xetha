@@ -77,6 +77,7 @@ class GamePlay extends Component {
     if (value === -1) {
       this.tap();
     }
+
     if (value === -1) var player = this.state.player;
 
     // Updates but with the player too

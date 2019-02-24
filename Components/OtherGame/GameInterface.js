@@ -7,6 +7,7 @@ class GameInterface extends Component {
   renderIcon = (row, column) => {
     var value = this.props.gameState[row][column];
     var randomIcon = Math.floor(Math.random() * 8);
+    //this.props.gameState[row][column] = randomIcon; // Giving the array the value of the icon
     switch (value) {
       case 1:
         return <View />; // Player

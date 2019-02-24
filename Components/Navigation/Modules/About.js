@@ -5,7 +5,8 @@ class About extends Component {
   render() {
     return (
       <View>
-        <Text>Hey from about !</Text>
+        <Text>This game has been made with React Native</Text>
+        <Text>Created by David</Text>
       </View>
     );
   }
