@@ -62,7 +62,6 @@ class GamePlay extends Component {
   updateGame(gameState) {
     var array = gameState.slice();
     this.setState({ gameState: array });
-    console.log(this.state.gameState);
   }
 
   tap = () => {
@@ -75,8 +74,10 @@ class GamePlay extends Component {
 
   handlePress = (row, column) => {
     var value = this.state.gameState[row][column][0];
-    if (value === -1) {
+    var iconValue = this.state.gameState[row][column][1];
+    if (value === -1 && iconValue === 1) {
       this.tap();
+      Alert.alert("lol good yob"); // Ok this works
     }
 
     if (value === -1) var player = this.state.player;
