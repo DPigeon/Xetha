@@ -15,12 +15,12 @@ class GamePlay extends Component {
     super(props);
     this.state = {
       gameState: [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]
-      ], // The board this.state
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+      ], // The board: first number is value, second is the icon, [0, 1, ...]
       player: 1, // Player 1: 1, Enemy (Game): -1
       gameRestarted: false,
       points: 0,
@@ -46,11 +46,11 @@ class GamePlay extends Component {
     // Player is set to 1 to begin
     this.setState({
       gameState: [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]],
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
       ],
       player: 1,
       gameRestarted: true,
@@ -62,6 +62,7 @@ class GamePlay extends Component {
   updateGame(gameState) {
     var array = gameState.slice();
     this.setState({ gameState: array });
+    console.log(this.state.gameState);
   }
 
   tap = () => {
@@ -73,7 +74,7 @@ class GamePlay extends Component {
   };
 
   handlePress = (row, column) => {
-    var value = this.state.gameState[row][column];
+    var value = this.state.gameState[row][column][0];
     if (value === -1) {
       this.tap();
     }
@@ -82,7 +83,7 @@ class GamePlay extends Component {
 
     // Updates but with the player too
     var array = this.state.gameState.slice();
-    array[row][column] = player;
+    array[row][column][0] = player;
     this.setState({ gameState: array });
 
     // Checks if there is a winner
@@ -98,7 +99,7 @@ class GamePlay extends Component {
 
   spawnRandom(row, column) {
     var enemyTile = -1;
-    this.state.gameState[row][column] = enemyTile; // Setting the tile to the game (enemy)
+    this.state.gameState[row][column][0] = enemyTile; // Setting the tile to the game (enemy)
     this.updateGame(this.state.gameState);
   }
 

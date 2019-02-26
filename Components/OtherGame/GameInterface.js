@@ -5,36 +5,36 @@ import PointsButton from "./PointsButton";
 
 class GameInterface extends Component {
   renderIcon = (row, column) => {
-    var value = this.props.gameState[row][column];
-    var randomIcon = Math.floor(Math.random() * 8);
-    //this.props.gameState[row][column] = randomIcon; // Giving the array the value of the icon
+    var value = this.props.gameState[row][column][0];
+    var randomIcon = Math.floor(Math.random() * 9);
+    this.props.gameState[row][column][1] = randomIcon;
     switch (value) {
       case 1:
         return <View />; // Player
       case -1:
         switch (randomIcon) {
-          case 0:
+          case 1:
             // Monster 1:
             return <Icon name="ghost" style={styles.tileGhost} />;
-          case 1:
+          case 2:
             // Monster 2:
             return <Icon name="duck" style={styles.tileDuck} />;
-          case 2:
+          case 3:
             // Monster 3:
             return <Icon name="snowman" style={styles.tileSnowman} />;
-          case 3:
+          case 4:
             // Multi-touch
             return <Icon name="gesture-spread" style={styles.tileMultitouch} />;
-          case 4:
+          case 5:
             // Target:
             return <Icon name="crosshairs-gps" style={styles.tileTarget} />;
-          case 5:
+          case 6:
             // Snowflake
             return <Icon name="snowflake" style={styles.tileSnowflake} />;
-          case 6:
+          case 7:
             //Energy
             return <Icon name="flash" style={styles.tileEnergy} />;
-          case 7:
+          case 8:
             // Wii (Just kidding keep on playing HAHA)
             return <Icon name="wii" style={styles.tileWii} />;
           default:
