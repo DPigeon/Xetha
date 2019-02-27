@@ -1,5 +1,6 @@
 import React from "react";
-import { Modal, Text, View, Alert } from "react-native";
+import { Modal, StyleSheet, View, Alert } from "react-native";
+import StartAnimation from "../../StartAnimation";
 
 function Snowflakes({ setModal }) {
   return (
@@ -13,7 +14,10 @@ function Snowflakes({ setModal }) {
         }}
       >
         <View>
-          <Text>Lol wtf</Text>
+          <StartAnimation
+            source={require("../../../assets/snowflakes.gif")}
+            style={imageStyle.snowflakes}
+          />
         </View>
       </Modal>
     </View>
@@ -21,3 +25,10 @@ function Snowflakes({ setModal }) {
 }
 
 export default Snowflakes;
+
+const imageStyle = StyleSheet.create({
+  snowflakes: {
+    alignItems: "center",
+    position: "absolute"
+  }
+});
