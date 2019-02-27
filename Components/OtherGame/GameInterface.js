@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
+import Snowflakes from "./Effects/Snowflakes";
 
 class GameInterface extends Component {
   renderIcon = (row, column) => {
@@ -228,6 +229,7 @@ class GameInterface extends Component {
         >
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
+        <Snowflakes setModal={this.props.snowflakesModal} />
         <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
     );

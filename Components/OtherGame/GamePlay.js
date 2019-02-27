@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import GameInterface from "./GameInterface";
 
 /* Global Variables */
@@ -24,7 +24,8 @@ class GamePlay extends Component {
       player: 1, // Player 1: 1, Enemy (Game): -1
       gameRestarted: false,
       points: 0,
-      taps: []
+      taps: [],
+      snowFlakesModal: false
     };
   }
 
@@ -76,8 +77,14 @@ class GamePlay extends Component {
     var value = this.state.gameState[row][column][0];
     var iconValue = this.state.gameState[row][column][1];
     if (value === -1 && iconValue === 1) {
+      // Ghost
       this.tap();
       Alert.alert("lol good yob"); // Ok this works
+    }
+    if (value === -1 && iconValue === 6) {
+      // Duck
+      this.tap();
+      this.snowFlakes();
     }
 
     if (value === -1) var player = this.state.player;
@@ -96,6 +103,12 @@ class GamePlay extends Component {
       Alert.alert("O's won !");
       this.initializeGame();
     }*/
+  };
+
+  snowFlakes = () => {
+    this.setState({
+      snowFlakesModal: true
+    });
   };
 
   spawnRandom(row, column) {
@@ -141,9 +154,19 @@ class GamePlay extends Component {
         initializeGame={this.initializeGame}
         points={this.state.points}
         taps={this.state.taps}
+        snowflakesModal={this.state.snowFlakesModal}
       />
     );
   }
 }
 
 export default GamePlay;
+
+const imageStyle = StyleSheet.create({
+  duck: {
+    alignItems: "center",
+    position: "absolute",
+    bottom: 400,
+    left: -18
+  }
+});
