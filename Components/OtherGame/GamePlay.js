@@ -107,7 +107,7 @@ class GamePlay extends Component {
 
   snowFlakes = () => {
     this.setState({
-      snowFlakesModal: true
+      snowFlakesModal: !this.state.snowFlakesModal
     });
   };
 

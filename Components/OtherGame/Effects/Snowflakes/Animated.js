@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Snow from "./Snow";
 import { Modal, View, Alert, Image, StyleSheet } from "react-native";
+import RNShake from "react-native-shake";
 
 class AnimatedSnowflakes extends PureComponent {
   constructor(props) {
@@ -9,6 +10,16 @@ class AnimatedSnowflakes extends PureComponent {
       width: 0,
       height: 0
     };
+  }
+
+  componentWillMount() {
+    RNShake.addEventListener("ShakeEvent", () => {
+      this.props.setModal;
+    });
+  }
+
+  componentWillUnmount() {
+    RNShake.removeEventListener("ShakeEvent");
   }
 
   render() {
@@ -30,7 +41,10 @@ class AnimatedSnowflakes extends PureComponent {
             Alert.alert("Modal has been closed.");
           }}
         >
-          <Image source={require("../../../../assets/snowflakesBg.jpg")} />
+          <Image
+            source={require("../../../../assets/snowflakesBg.jpg")}
+            style={styles.snowContainer}
+          />
           <View
             {...this.props}
             onLayout={event => {
@@ -54,5 +68,8 @@ export default AnimatedSnowflakes;
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  snowContainer: {
+    position: "absolute"
   }
 });

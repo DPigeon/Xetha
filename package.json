@@ -9,10 +9,12 @@
   "dependencies": {
     "expo": "^32.0.0",
     "expo-cli": "^2.7.1",
+    "link": "^0.1.5",
     "matter-js": "^0.14.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-game-engine": "^0.10.1",
+    "react-native-shake": "^3.2.4",
     "react-native-vector-icons": "^6.2.0",
     "react-navigation": "^3.0.9"
   },
