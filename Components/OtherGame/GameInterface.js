@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
-import Snowflakes from "./Effects/Snowflakes";
+import Snowflakes from "./Effects/Snowflakes/Animated";
+
+const { height, width } = Dimensions.get("window");
 
 class GameInterface extends Component {
   renderIcon = (row, column) => {
@@ -229,7 +237,10 @@ class GameInterface extends Component {
         >
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
-        <Snowflakes setModal={this.props.snowflakesModal} />
+        <Snowflakes
+          style={styles.snowContainer}
+          setModal={this.props.snowflakesModal}
+        />
         <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
     );
@@ -297,5 +308,11 @@ const styles = StyleSheet.create({
   ButtonPosition: {
     bottom: -123,
     right: 0
+  },
+  snowContainer: {
+    position: "absolute",
+    top: width / 3,
+    width: width,
+    height: height / 2
   }
 });
