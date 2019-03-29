@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
-import Snowflakes from "./Effects/Snowflakes/Animated";
+import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
 
 const { height, width } = Dimensions.get("window");
 
@@ -237,9 +237,10 @@ class GameInterface extends Component {
         >
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
-        <Snowflakes
+        <SnowflakesAnimated
           style={styles.snowContainer}
-          setModal={this.props.snowflakesModal}
+          snowflakesState={this.props.snowflakesState}
+          setSnowflakesModal={this.props.setSnowflakesModal}
         />
         <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
