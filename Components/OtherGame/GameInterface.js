@@ -9,6 +9,8 @@ import {
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
+import DuckMinigame from "./Effects/Duck/MinigameModal";
+import SnowmanMinigame from "./Effects/Snowman/MinigameModal";
 
 const { height, width } = Dimensions.get("window");
 
@@ -249,6 +251,12 @@ class GameInterface extends Component {
           duckModal={this.props.duckModal}
         />
 
+        <SnowmanMinigame
+          style={styles.minigameContainer}
+          snowmanState={this.props.snowmanState}
+          snowmanModal={this.props.snowmanModal}
+        />
+
         <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
     );
@@ -322,5 +330,5 @@ const styles = StyleSheet.create({
     top: width / 3,
     width: width,
     height: height / 2
-  },
+  }
 });

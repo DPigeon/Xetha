@@ -80,11 +80,17 @@ class GamePlay extends Component {
     if (value === -1 && iconValue === 1) {
       // Ghost
       this.tap();
-      Alert.alert("lol good yob"); // Ok this works
+      Alert.alert("You killed a ghost..."); // Ok this works
     }
     if (value === -1 && iconValue === 2) {
+      // Duck minigame
       this.tap();
       this.duckMiniGame();
+    }
+    if (value === -1 && iconValue === 3) {
+      // Snowman
+      this.tap();
+      this.snowmanMiniGame();
     }
     if (value === -1 && iconValue === 6) {
       // Duck
@@ -119,6 +125,12 @@ class GamePlay extends Component {
   duckMinigame = () => {
     this.setState({
       duckModal: !this.state.duckModal
+    });
+  };
+
+  snowmanMinigame = () => {
+    this.setState({
+      snowmanModal: !this.state.snowmanModal
     });
   };
 
@@ -165,22 +177,18 @@ class GamePlay extends Component {
         initializeGame={this.initializeGame}
         points={this.state.points}
         taps={this.state.taps}
+
         snowflakesState={this.state.snowFlakesModal}
         setSnowFlakesModal={this.snowFlakes}
+
         duckState={this.state.duckModal}
         duckModal={this.duckMinigame}
+
+        snowmanState={this.state.snowmanModal}
+        snowmanModal={this.snowmanMinigame}
       />
     );
   }
 }
 
 export default GamePlay;
-
-const imageStyle = StyleSheet.create({
-  duck: {
-    alignItems: "center",
-    position: "absolute",
-    bottom: 400,
-    left: -18
-  }
-});
