@@ -4,6 +4,7 @@ import { Modal, View, Button, Alert, Image } from "react-native";
 class MinigameModal extends PureComponent {
   state = { tap: 0, randomNumber: Math.max(5, 30) };
   // Minigame: tap the snowman to create heat to melt it (from 5 to 30 random taps)
+  // Make background black
 
   handleTap = () => {
     this.setState({ tap: this.state.tap + 1 });
