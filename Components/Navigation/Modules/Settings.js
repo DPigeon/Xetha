@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 
 class Settings extends Component {
   render() {
@@ -7,16 +7,16 @@ class Settings extends Component {
       <View>
         <Text>Difficulty:</Text>
         <TouchableOpacity>
-          <Text>Easy</Text>
+          <Text style={buttonStyles.Button}>Easy</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Medium</Text>
+          <Text style={buttonStyles.Button}>Medium</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Hard</Text>
+          <Text style={buttonStyles.Button}>Hard</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text>Intense</Text>
+          <Text style={buttonStyles.Button}>Intense</Text>
         </TouchableOpacity>
       </View>
     );
@@ -24,3 +24,18 @@ class Settings extends Component {
 }
 
 export default Settings;
+
+const buttonStyles = StyleSheet.create({
+  Button: {
+    backgroundColor: "#2d594d",
+    borderColor: "white",
+    borderWidth: 1,
+    borderRadius: 50,
+    color: "white",
+    fontSize: 27,
+    fontWeight: "bold",
+    overflow: "hidden",
+    padding: 12,
+    textAlign: "center"
+  }
+});

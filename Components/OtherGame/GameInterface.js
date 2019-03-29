@@ -10,7 +10,7 @@ import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
 import DuckMinigame from "./Effects/Duck/MinigameModal";
-import SnowmanMinigame from "./Effects/Snowman/MinigameModal";
+import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
 
 const { height, width } = Dimensions.get("window");
 

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Modal, View, Button, Alert } from "react-native";
+import { Modal, View, Button, Alert, StyleSheet } from "react-native";
 
 class MinigameModal extends PureComponent {
   state = {};
@@ -23,11 +23,11 @@ class MinigameModal extends PureComponent {
           transparent={false}
           visible={this.props.duckState}
         >
-          <Button onPress={this.handleButtonPress("1")} />
-          <Button onPress={this.handleButtonPress("2")} />
-          <Button onPress={this.handleButtonPress("3")} />
-          <Button onPress={this.handleButtonPress("4")} />
-          <Button onPress={this.handleButtonPress("5")} />
+          <Button onPress={() => this.handleButtonPress("1")} />
+          <Button onPress={() => this.handleButtonPress("2")} />
+          <Button onPress={() => this.handleButtonPress("3")} />
+          <Button onPress={() => this.handleButtonPress("4")} />
+          <Button onPress={() => this.handleButtonPress("5")} />
         </Modal>
       </View>
     );

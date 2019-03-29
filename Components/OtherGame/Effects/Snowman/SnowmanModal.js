@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Modal, View, Button, Alert, Image } from "react-native";
+import { Modal, View, Button, Alert, Image, StyleSheet } from "react-native";
 
 class MinigameModal extends PureComponent {
   state = { tap: 0, randomNumber: Math.max(5, 30) };
@@ -33,7 +33,7 @@ class MinigameModal extends PureComponent {
             source={require("../../../../assets/snowmanBg.png")}
             style={styles.snowmanContainer}
           />
-          <Button onPress={this.handleButtonPress()}>
+          <Button title="Snowman" onPress={() => this.handleButtonPress()}>
             Melt Taps: {this.state.tap}
           </Button>
         </Modal>

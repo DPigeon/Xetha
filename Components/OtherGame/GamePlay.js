@@ -26,6 +26,7 @@ class GamePlay extends Component {
       points: 0,
       taps: [],
       snowFlakesModal: false,
+      snowmanModal: false,
       duckModal: false
     };
   }
@@ -164,7 +165,7 @@ class GamePlay extends Component {
     else if (sum == -3) return -1;
     // If all tiles are not empty, return 2 (end the game)
     for (var i = 0; i < tiles; i++) {
-      for (var j = 0; j < tiles; j++) { }
+      for (var j = 0; j < tiles; j++) {}
     }
     return 0;
   }
@@ -177,13 +178,10 @@ class GamePlay extends Component {
         initializeGame={this.initializeGame}
         points={this.state.points}
         taps={this.state.taps}
-
         snowflakesState={this.state.snowFlakesModal}
         setSnowFlakesModal={this.snowFlakes}
-
         duckState={this.state.duckModal}
         duckModal={this.duckMinigame}
-
         snowmanState={this.state.snowmanModal}
         snowmanModal={this.snowmanMinigame}
       />
