@@ -15,6 +15,10 @@ class MinigameModal extends PureComponent {
     }
   };
 
+  handleRequestClose = () => {
+    Alert.alert("You can't just leave like that, noob...");
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -22,12 +26,13 @@ class MinigameModal extends PureComponent {
           animationType="slide"
           transparent={false}
           visible={this.props.duckState}
+          onRequestClose={() => this.handleRequestClose()}
         >
-          <Button onPress={() => this.handleButtonPress("1")} />
-          <Button onPress={() => this.handleButtonPress("2")} />
-          <Button onPress={() => this.handleButtonPress("3")} />
-          <Button onPress={() => this.handleButtonPress("4")} />
-          <Button onPress={() => this.handleButtonPress("5")} />
+          <Button title="Duck 1" onPress={() => this.handleButtonPress("1")} />
+          <Button title="Duck 2" onPress={() => this.handleButtonPress("2")} />
+          <Button title="Duck 3" onPress={() => this.handleButtonPress("3")} />
+          <Button title="Duck 4" onPress={() => this.handleButtonPress("4")} />
+          <Button title="Duck 5" onPress={() => this.handleButtonPress("5")} />
         </Modal>
       </View>
     );

@@ -21,6 +21,10 @@ class MinigameModal extends PureComponent {
     }
   };
 
+  handleRequestClose = () => {
+    Alert.alert("Don't just leave like that, fool...");
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -28,6 +32,7 @@ class MinigameModal extends PureComponent {
           animationType="slide"
           transparent={false}
           visible={this.props.snowmanState}
+          onRequestClose={() => this.handleRequestClose()}
         >
           <Image
             source={require("../../../../assets/snowmanBg.png")}

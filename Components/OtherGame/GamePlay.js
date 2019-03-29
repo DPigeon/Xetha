@@ -117,6 +117,8 @@ class GamePlay extends Component {
     }*/
   };
 
+  /* Minigames */
+
   snowFlakes = () => {
     this.setState({
       snowFlakesModal: !this.state.snowFlakesModal
