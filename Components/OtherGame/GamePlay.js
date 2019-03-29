@@ -25,7 +25,8 @@ class GamePlay extends Component {
       gameRestarted: false,
       points: 0,
       taps: [],
-      snowFlakesModal: false
+      snowFlakesModal: false,
+      duckModal: false
     };
   }
 
@@ -81,6 +82,10 @@ class GamePlay extends Component {
       this.tap();
       Alert.alert("lol good yob"); // Ok this works
     }
+    if (value === -1 && iconValue === 2) {
+      this.tap();
+      this.duckMiniGame();
+    }
     if (value === -1 && iconValue === 6) {
       // Duck
       this.tap();
@@ -108,6 +113,12 @@ class GamePlay extends Component {
   snowFlakes = () => {
     this.setState({
       snowFlakesModal: !this.state.snowFlakesModal
+    });
+  };
+
+  duckMinigame = () => {
+    this.setState({
+      duckModal: !this.state.duckModal
     });
   };
 
@@ -156,6 +167,8 @@ class GamePlay extends Component {
         taps={this.state.taps}
         snowflakesState={this.state.snowFlakesModal}
         setSnowFlakesModal={this.snowFlakes}
+        duckState={this.state.duckModal}
+        duckModal={this.duckMinigame}
       />
     );
   }

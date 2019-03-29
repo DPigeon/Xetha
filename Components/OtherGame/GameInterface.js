@@ -238,10 +238,17 @@ class GameInterface extends Component {
           <Text style={styles.Button}>New Game</Text>
         </TouchableOpacity>
         <SnowflakesAnimated
-          style={styles.snowContainer}
+          style={styles.minigameContainer}
           snowflakesState={this.props.snowflakesState}
           setSnowflakesModal={this.props.setSnowflakesModal}
         />
+
+        <DuckMinigame
+          style={styles.minigameContainer}
+          duckState={this.props.duckState}
+          duckModal={this.props.duckModal}
+        />
+
         <PointsButton points={this.props.points} taps={this.props.taps} />
       </View>
     );
@@ -310,10 +317,10 @@ const styles = StyleSheet.create({
     bottom: -123,
     right: 0
   },
-  snowContainer: {
+  minigameContainer: {
     position: "absolute",
     top: width / 3,
     width: width,
     height: height / 2
-  }
+  },
 });
