@@ -7,9 +7,10 @@ class About extends Component {
       <View>
         <Text>This game has been made with React Native</Text>
         <Text>Created by David (DPigeon) for fun</Text>
-        <TouchableOpacity onPress={this.props.navigate}>
+        <TouchableOpacity>
           <Text style={buttonStyles.Button}>Website</Text>
         </TouchableOpacity>
+        <Text>Feedback is greatly appreciated !</Text>
       </View>
     );
   }
