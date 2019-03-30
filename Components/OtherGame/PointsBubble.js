@@ -14,7 +14,7 @@ class PointsBubble extends Component {
     // Parallel starts animations at same time
     Animated.parallel([
       Animated.timing(this.state.yPosition, {
-        toValue: -50, // Goes to the top
+        toValue: -100, // Goes to the top
         duration: 500
       }),
       Animated.timing(this.state.opacity, {

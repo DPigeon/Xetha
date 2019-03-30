@@ -2,11 +2,12 @@ import React, { PureComponent } from "react";
 import { Modal, View, Button, Alert, StyleSheet } from "react-native";
 
 class MinigameModal extends PureComponent {
-  state = {};
+  state = { randomNumber: Math.floor(Math.random() * 5) };
   // Minigame: you have 5 buttons and you have to guess which duck is the right 1 (add duck sound effect) 1/5 chances
 
   handleButtonPress = number => {
-    const randomNumber = Math.max(1, 5);
+    let { randomNumber } = this.state;
+    console.log(this.props.duckModal(), this.props.duckState);
     if (randomNumber === number) {
       Alert.alert("Oh, so you're good at guessing...");
       this.props.duckModal();
@@ -28,11 +29,11 @@ class MinigameModal extends PureComponent {
           visible={this.props.duckState}
           onRequestClose={() => this.handleRequestClose()}
         >
-          <Button title="Duck 1" onPress={() => this.handleButtonPress("1")} />
-          <Button title="Duck 2" onPress={() => this.handleButtonPress("2")} />
-          <Button title="Duck 3" onPress={() => this.handleButtonPress("3")} />
-          <Button title="Duck 4" onPress={() => this.handleButtonPress("4")} />
-          <Button title="Duck 5" onPress={() => this.handleButtonPress("5")} />
+          <Button title="Duck 1" onPress={() => this.handleButtonPress(0)} />
+          <Button title="Duck 2" onPress={() => this.handleButtonPress(1)} />
+          <Button title="Duck 3" onPress={() => this.handleButtonPress(2)} />
+          <Button title="Duck 4" onPress={() => this.handleButtonPress(3)} />
+          <Button title="Duck 5" onPress={() => this.handleButtonPress(4)} />
         </Modal>
       </View>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Alert, StyleSheet, View } from "react-native";
 import GameInterface from "./GameInterface";
 
 /* Global Variables */
@@ -81,22 +80,24 @@ class GamePlay extends Component {
     if (value === -1 && iconValue === 1) {
       // Ghost
       this.tap();
-      Alert.alert("You killed a ghost..."); // Ok this works
     }
     if (value === -1 && iconValue === 2) {
       // Duck minigame
       this.tap();
-      this.duckMiniGame();
+      this.handleMinigameModal("duckModal", this.state.duckModal);
+      // this.duckMinigame();
     }
     if (value === -1 && iconValue === 3) {
       // Snowman
       this.tap();
-      this.snowmanMiniGame();
+      this.handleMinigameModal("snowmanModal", this.state.snowmanModal);
+      //this.snowmanMiniGame();
     }
     if (value === -1 && iconValue === 6) {
-      // Duck
+      // Snowflake
       this.tap();
-      this.snowFlakes();
+      this.handleMinigameModal("snowFlakesModal", this.state.snowFlakesModal);
+      // this.snowFlakes();
     }
 
     if (value === -1) var player = this.state.player;
@@ -107,8 +108,16 @@ class GamePlay extends Component {
     this.setState({ gameState: array });
   };
 
-  /* Minigames */
+  /* Minigame Handlers */
 
+  // When tapping
+  handleMinigameModal = (name, state) => {
+    this.setState({
+      [name]: !state
+    });
+  };
+
+  // When sending the function
   snowFlakes = () => {
     this.setState({
       snowFlakesModal: !this.state.snowFlakesModal
@@ -145,7 +154,7 @@ class GamePlay extends Component {
         snowflakesState={this.state.snowFlakesModal}
         setSnowflakesModal={() => this.snowFlakes}
         duckState={this.state.duckModal}
-        duckModal={() => this.duckMinigame}
+        duckModal={() => this.duckMinigame()}
         snowmanState={this.state.snowmanModal}
         snowmanModal={() => this.snowmanMinigame}
       />
