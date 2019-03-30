@@ -8,7 +8,7 @@ let intervalTime = 2000; // 2 Seconds interval between spawns (make it random la
 
 class GamePlay extends Component {
   static navigationOptions = {
-    title: "Yo You Gonna Lose..." // Change title according to what player does later (you suck, you an do better, ect)
+    title: "You Gonna Lose..." // Change title according to what player does later (you suck, you an do better, ect)
   };
 
   constructor(props) {
@@ -105,16 +105,6 @@ class GamePlay extends Component {
     var array = this.state.gameState.slice();
     array[row][column][0] = player;
     this.setState({ gameState: array });
-
-    // Checks if there is a winner
-    /*var winner = this.gameWinner();
-    if (winner === 1) {
-      Alert.alert("X's won !");
-      this.initializeGame();
-    } else if (winner === -1) {
-      Alert.alert("O's won !");
-      this.initializeGame();
-    }*/
   };
 
   /* Minigames */
@@ -143,35 +133,6 @@ class GamePlay extends Component {
     this.updateGame(this.state.gameState);
   }
 
-  gameWinner() {
-    const tiles = 3;
-    var array = this.state.gameState;
-    var sum;
-    for (var i = 0; i < tiles; i++) {
-      sum = array[i][0] + array[i][1] + array[i][2];
-      // if the sum is 3, player 1 won
-      if (sum == 3) return 1;
-      // if the sum is -3, player 2 won
-      else if (sum == -3) return -1;
-    }
-    for (var i = 0; i < tiles; i++) {
-      sum = array[0][i] + array[1][i] + array[2][i];
-      if (sum == 3) return 1;
-      else if (sum == -3) return -1;
-    }
-    sum = array[0][0] + array[1][1] + array[2][2];
-    if (sum == 3) return 1;
-    else if (sum == -3) return -1;
-    sum = array[2][0] + array[1][1] + array[0][2];
-    if (sum == 3) return 1;
-    else if (sum == -3) return -1;
-    // If all tiles are not empty, return 2 (end the game)
-    for (var i = 0; i < tiles; i++) {
-      for (var j = 0; j < tiles; j++) {}
-    }
-    return 0;
-  }
-
   render() {
     return (
       <GameInterface
@@ -180,12 +141,13 @@ class GamePlay extends Component {
         initializeGame={this.initializeGame}
         points={this.state.points}
         taps={this.state.taps}
+        // Minigame settings
         snowflakesState={this.state.snowFlakesModal}
-        setSnowFlakesModal={this.snowFlakes}
+        setSnowflakesModal={() => this.snowFlakes}
         duckState={this.state.duckModal}
-        duckModal={this.duckMinigame}
+        duckModal={() => this.duckMinigame}
         snowmanState={this.state.snowmanModal}
-        snowmanModal={this.snowmanMinigame}
+        snowmanModal={() => this.snowmanMinigame}
       />
     );
   }

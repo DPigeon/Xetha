@@ -26,7 +26,8 @@ class AnimatedSnowflakes extends PureComponent {
           animationType="slide"
           transparent={false}
           visible={this.props.snowflakesState}
-          onRequestClose={() => this.props.setSnowflakesModal()}
+          onRequestClose={this.props.setSnowflakesModal()}
+          onDismiss={this.props.setSnowflakesModal()}
         >
           <Image
             source={require("../../../../assets/snowflakesBg.jpg")}

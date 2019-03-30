@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Dimensions } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
 import DuckMinigame from "./Effects/Duck/MinigameModal";
 import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
-import { styles } from "./StyleSheetInterface";
-
-const { height, width } = Dimensions.get("window");
+import styles from "./StyleSheetInterface";
 
 class GameInterface extends Component {
   renderIcon = (row, column) => {
