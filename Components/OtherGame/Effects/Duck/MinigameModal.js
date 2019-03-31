@@ -1,5 +1,14 @@
 import React, { PureComponent } from "react";
-import { Modal, View, Button, Alert, StyleSheet } from "react-native";
+import {
+  Modal,
+  View,
+  TouchableOpacity,
+  Alert,
+  StyleSheet,
+  Text
+} from "react-native";
+import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
+import stylesSheet from "../../StyleSheetInterface";
 
 class MinigameModal extends PureComponent {
   state = { randomNumber: Math.floor(Math.random() * 5) };
@@ -29,11 +38,26 @@ class MinigameModal extends PureComponent {
           visible={this.props.duckState}
           onRequestClose={() => this.handleRequestClose()}
         >
-          <Button title="Duck 1" onPress={() => this.handleButtonPress(0)} />
-          <Button title="Duck 2" onPress={() => this.handleButtonPress(1)} />
-          <Button title="Duck 3" onPress={() => this.handleButtonPress(2)} />
-          <Button title="Duck 4" onPress={() => this.handleButtonPress(3)} />
-          <Button title="Duck 5" onPress={() => this.handleButtonPress(4)} />
+          <Text>There are many ducks... which one is the good one ?!</Text>
+          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
+            <Icon name="duck" style={stylesSheet.tileDuck} />
+          </TouchableOpacity>
+          <View />
+          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
+            <Icon name="duck" style={stylesSheet.tileDuck} />
+          </TouchableOpacity>
+          <View />
+          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
+            <Icon name="duck" style={stylesSheet.tileDuck} />
+          </TouchableOpacity>
+          <View />
+          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
+            <Icon name="duck" style={stylesSheet.tileDuck} />
+          </TouchableOpacity>
+          <View />
+          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
+            <Icon name="duck" style={stylesSheet.tileDuck} />
+          </TouchableOpacity>
         </Modal>
       </View>
     );
