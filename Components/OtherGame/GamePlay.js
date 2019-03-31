@@ -85,19 +85,32 @@ class GamePlay extends Component {
       // Duck minigame
       this.tap();
       this.handleMinigameModal("duckModal", this.state.duckModal);
-      // this.duckMinigame();
     }
     if (value === -1 && iconValue === 3) {
       // Snowman
       this.tap();
       this.handleMinigameModal("snowmanModal", this.state.snowmanModal);
-      //this.snowmanMiniGame();
+    }
+    if (value === -1 && iconValue === 4) {
+      // multi-touch
+      this.tap();
+    }
+    if (value === -1 && iconValue === 5) {
+      // Target
+      this.tap();
     }
     if (value === -1 && iconValue === 6) {
       // Snowflake
       this.tap();
       this.handleMinigameModal("snowFlakesModal", this.state.snowFlakesModal);
-      // this.snowFlakes();
+    }
+    if (value === -1 && iconValue === 7) {
+      // Flash could do a big animated flash
+      this.tap();
+    }
+    if (value === -1 && iconValue === 8) {
+      // Wii
+      this.tap();
     }
 
     if (value === -1) var player = this.state.player;
