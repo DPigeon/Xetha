@@ -26,7 +26,8 @@ class GamePlay extends Component {
       taps: [],
       snowFlakesModal: false,
       snowmanModal: false,
-      duckModal: false
+      duckModal: false,
+      flashModal: false
     };
   }
 
@@ -105,8 +106,8 @@ class GamePlay extends Component {
       this.handleMinigameModal("snowFlakesModal", this.state.snowFlakesModal);
     }
     if (value === -1 && iconValue === 7) {
-      // Flash could do a big animated flash
       this.tap();
+      this.handleMinigameModal("flashModal", this.state.flashModal);
     }
     if (value === -1 && iconValue === 8) {
       // Wii
@@ -149,6 +150,12 @@ class GamePlay extends Component {
     });
   };
 
+  snowmanMinigame = () => {
+    this.setState({
+      flashModal: !this.state.flashModal
+    });
+  };
+
   spawnRandom(row, column) {
     var enemyTile = -1;
     this.state.gameState[row][column][0] = enemyTile; // Setting the tile to the game (enemy)
@@ -170,6 +177,8 @@ class GamePlay extends Component {
         duckModal={() => this.duckMinigame()}
         snowmanState={this.state.snowmanModal}
         snowmanModal={() => this.snowmanMinigame}
+        flashState={this.state.flashModal}
+        flashModal={() => this.flashMinigame}
       />
     );
   }

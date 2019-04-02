@@ -5,6 +5,7 @@ import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
 import DuckMinigame from "./Effects/Duck/MinigameModal";
 import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
+import FlashMinigame from "./Effects/Flash/";
 import styles from "./StyleSheetInterface";
 
 class GameInterface extends Component {
@@ -248,6 +249,12 @@ class GameInterface extends Component {
           style={styles.minigameContainer}
           snowmanState={this.props.snowmanState}
           snowmanModal={this.props.snowmanModal}
+        />
+
+        <FlashMinigame
+          style={styles.minigameContainer}
+          flashState={this.props.flashState}
+          flashModal={this.props.flashModal}
         />
 
         <PointsButton points={this.props.points} taps={this.props.taps} />
