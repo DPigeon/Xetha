@@ -3,9 +3,9 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
-import DuckMinigame from "./Effects/Duck/MinigameModal";
+import DuckMinigame from "./Effects/Duck/DuckModal";
 import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
-import FlashMinigame from "./Effects/Flash/MinigameModal";
+import FlashMinigame from "./Effects/Flash/FlashModal";
 import styles from "./StyleSheetInterface";
 
 class GameInterface extends Component {
