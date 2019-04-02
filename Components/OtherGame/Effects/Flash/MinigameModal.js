@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Modal, View, Text, StyleSheet, Animated } from "react-native";
 
-class AnimatedSnowflakes extends PureComponent {
+class FlashMinigame extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ class AnimatedSnowflakes extends PureComponent {
         <Modal
           animationType="slide"
           transparent={false}
-          visible={this.props.snowflakesState}
+          visible={this.props.flashState}
           onRequestClose={this.props.flashModal()}
           onDismiss={this.props.flashModal()}
         >
@@ -45,14 +45,16 @@ class AnimatedSnowflakes extends PureComponent {
               this.props.style
             ]}
           />
-          <Text>YOU JUST GOT FLASHED</Text>
+          <View style={styles.text}>
+            <Text>YOU JUST GOT FLASHED</Text>
+          </View>
         </Modal>
       </View>
     );
   }
 }
 
-export default AnimatedSnowflakes;
+export default FlashMinigame;
 
 const styles = StyleSheet.create({
   container: {
@@ -60,5 +62,9 @@ const styles = StyleSheet.create({
   },
   snowContainer: {
     position: "absolute"
+  },
+  text: {
+    alignContent: "center",
+    alignItems: "center"
   }
 });

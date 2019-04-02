@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import Snow from "./Snow";
-import { Modal, View, Alert, Image, StyleSheet } from "react-native";
+import { Modal, View, Image, StyleSheet } from "react-native";
 
 class AnimatedSnowflakes extends PureComponent {
   constructor(props) {

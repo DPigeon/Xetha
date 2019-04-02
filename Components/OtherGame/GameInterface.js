@@ -5,7 +5,7 @@ import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
 import DuckMinigame from "./Effects/Duck/MinigameModal";
 import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
-import FlashMinigame from "./Effects/Flash/";
+import FlashMinigame from "./Effects/Flash/MinigameModal";
 import styles from "./StyleSheetInterface";
 
 class GameInterface extends Component {
