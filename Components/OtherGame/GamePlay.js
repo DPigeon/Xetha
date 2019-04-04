@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import GameInterface from "./GameInterface";
-import { ImageBackground } from "react-native";
 
 /* Global Variables */
 let interval;
 let intervalTime = 2000; // 2 Seconds interval between spawns (make it random later ?)
 
-class GamePlay extends Component {
+class GamePlay extends PureComponent {
   static navigationOptions = {
     title: "You Gonna Lose..." // Change title according to what player does later (you suck, you an do better, ect)
   };
@@ -129,31 +128,6 @@ class GamePlay extends Component {
   handleMinigameModal = (name, state) => {
     this.setState({
       [name]: !state
-    });
-  };
-
-  // When sending the function
-  snowFlakes = () => {
-    this.setState({
-      snowFlakesModal: !this.state.snowFlakesModal
-    });
-  };
-
-  duckMinigame = () => {
-    this.setState({
-      duckModal: !this.state.duckModal
-    });
-  };
-
-  snowmanMinigame = () => {
-    this.setState({
-      snowmanModal: !this.state.snowmanModal
-    });
-  };
-
-  flashMinigame = () => {
-    this.setState({
-      flashModal: !this.state.flashModal
     });
   };
 

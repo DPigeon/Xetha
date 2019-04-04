@@ -10,8 +10,8 @@ import {
 } from "react-native";
 
 class SnowmanModal extends PureComponent {
-  state = { tap: 0, randomNumber: Math.max(5, 10) };
-  // Minigame: tap the snowman to create heat to melt it (from 5 to 30 random taps)
+  state = { tap: 0, randomNumber: Math.floor(Math.random() * 100) + 5 };
+  // Minigame: tap the snowman to create heat to melt it (from 5 to 100 random taps)
   // Make background black
 
   handleTap = () => {

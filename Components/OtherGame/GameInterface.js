@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import React, { PureComponent } from "react";
+import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
 import { MaterialCommunityIcons as Icon } from "react-native-vector-icons";
 import PointsButton from "./PointsButton";
 import SnowflakesAnimated from "./Effects/Snowflakes/Animated";
@@ -8,7 +8,7 @@ import SnowmanMinigame from "./Effects/Snowman/SnowmanModal";
 import FlashMinigame from "./Effects/Flash/FlashModal";
 import styles from "./StyleSheetInterface";
 
-class GameInterface extends Component {
+class GameInterface extends PureComponent {
   renderIcon = (row, column) => {
     var value = this.props.gameState[row][column][0];
     var randomIcon = Math.floor(Math.random() * 9);
@@ -52,213 +52,218 @@ class GameInterface extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {/* Row 1 */}
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(0, 0)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(0, 0)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(0, 1)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(0, 1)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(0, 2)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(0, 2)}
-          </TouchableOpacity>
+      <ImageBackground
+        source={require("../../assets/gameplay.png")}
+        style={styles.container}
+      >
+        <View style={styles.container}>
+          {/* Row 1 */}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(0, 0)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(0, 0)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(0, 1)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(0, 1)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(0, 2)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(0, 2)}
+            </TouchableOpacity>
 
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(0, 3)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(0, 3)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(0, 4)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(0, 4)}
+            </TouchableOpacity>
+          </View>
+
+          {/* Row 2 */}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(1, 0)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(1, 0)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(1, 1)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(1, 1)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(1, 2)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(1, 2)}
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(1, 3)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(1, 3)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(1, 4)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(1, 4)}
+            </TouchableOpacity>
+          </View>
+
+          {/* Row 3 */}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(2, 0)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(2, 0)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(2, 1)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(2, 1)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(2, 2)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(2, 2)}
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(2, 3)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(2, 3)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(2, 4)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(2, 4)}
+            </TouchableOpacity>
+          </View>
+
+          {/* Row 4 */}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(3, 0)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(3, 0)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(3, 1)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(3, 1)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(3, 2)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(3, 2)}
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(3, 3)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(3, 3)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(3, 4)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(3, 4)}
+            </TouchableOpacity>
+          </View>
+
+          {/* Row 5 */}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(4, 0)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(4, 0)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(4, 1)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(4, 1)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(4, 2)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(4, 2)}
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(4, 3)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(4, 3)}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.handlePress(4, 4)}
+              style={[styles.tile, {}]}
+            >
+              {this.renderIcon(4, 4)}
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            onPress={() => this.props.handlePress(0, 3)}
-            style={[styles.tile, {}]}
+            style={styles.ButtonPosition}
+            onPress={() => this.props.initializeGame()}
           >
-            {this.renderIcon(0, 3)}
+            <Text style={styles.Button}>New Game</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(0, 4)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(0, 4)}
-          </TouchableOpacity>
+          <SnowflakesAnimated
+            style={styles.minigameContainer}
+            snowflakesState={this.props.snowflakesState}
+            setSnowflakesModal={this.props.setSnowflakesModal}
+          />
+
+          <DuckMinigame
+            style={styles.minigameContainer}
+            duckState={this.props.duckState}
+            duckModal={this.props.duckModal}
+          />
+
+          <SnowmanMinigame
+            style={styles.minigameContainer}
+            snowmanState={this.props.snowmanState}
+            snowmanModal={this.props.snowmanModal}
+          />
+
+          <FlashMinigame
+            style={styles.minigameContainer}
+            flashState={this.props.flashState}
+            flashModal={this.props.flashModal}
+          />
+
+          <PointsButton points={this.props.points} taps={this.props.taps} />
         </View>
-
-        {/* Row 2 */}
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(1, 0)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(1, 0)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(1, 1)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(1, 1)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(1, 2)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(1, 2)}
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(1, 3)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(1, 3)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(1, 4)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(1, 4)}
-          </TouchableOpacity>
-        </View>
-
-        {/* Row 3 */}
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(2, 0)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(2, 0)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(2, 1)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(2, 1)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(2, 2)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(2, 2)}
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(2, 3)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(2, 3)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(2, 4)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(2, 4)}
-          </TouchableOpacity>
-        </View>
-
-        {/* Row 4 */}
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(3, 0)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(3, 0)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(3, 1)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(3, 1)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(3, 2)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(3, 2)}
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(3, 3)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(3, 3)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(3, 4)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(3, 4)}
-          </TouchableOpacity>
-        </View>
-
-        {/* Row 5 */}
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(4, 0)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(4, 0)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(4, 1)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(4, 1)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(4, 2)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(4, 2)}
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(4, 3)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(4, 3)}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.handlePress(4, 4)}
-            style={[styles.tile, {}]}
-          >
-            {this.renderIcon(4, 4)}
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          style={styles.ButtonPosition}
-          onPress={() => this.props.initializeGame()}
-        >
-          <Text style={styles.Button}>New Game</Text>
-        </TouchableOpacity>
-        <SnowflakesAnimated
-          style={styles.minigameContainer}
-          snowflakesState={this.props.snowflakesState}
-          setSnowflakesModal={this.props.setSnowflakesModal}
-        />
-
-        <DuckMinigame
-          style={styles.minigameContainer}
-          duckState={this.props.duckState}
-          duckModal={this.props.duckModal}
-        />
-
-        <SnowmanMinigame
-          style={styles.minigameContainer}
-          snowmanState={this.props.snowmanState}
-          snowmanModal={this.props.snowmanModal}
-        />
-
-        <FlashMinigame
-          style={styles.minigameContainer}
-          flashState={this.props.flashState}
-          flashModal={this.props.flashModal}
-        />
-
-        <PointsButton points={this.props.points} taps={this.props.taps} />
-      </View>
+      </ImageBackground>
     );
   }
 }
