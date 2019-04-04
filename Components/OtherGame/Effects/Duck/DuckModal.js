@@ -43,42 +43,74 @@ class DuckModal extends PureComponent {
             source={require("../../../../assets/duckBg.png")}
             style={styles.duckContainer}
           />
+          <View style={styles.container}>
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(0)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => this.handleButtonPress(0)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(1)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(2)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(3)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(4)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(5)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(6)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(7)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
-          <View />
-          <TouchableOpacity onPress={() => this.handleButtonPress(8)}>
-            <Icon name="duck" style={stylesSheet.tileDuck} />
-          </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(1)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(2)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(3)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(4)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(5)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(6)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(7)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => this.handleButtonPress(8)}
+                style={[styles.tile]}
+              >
+                <Icon name="duck" style={stylesSheet.tileDuck} />
+              </TouchableOpacity>
+            </View>
+          </View>
           <View />
         </Modal>
       </View>
@@ -90,9 +122,16 @@ export default DuckModal;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   duckContainer: {
     position: "absolute"
+  },
+  tile: {
+    borderWidth: 1,
+    width: 65,
+    height: 65
   }
 });
