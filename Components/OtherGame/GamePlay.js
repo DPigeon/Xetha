@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import GameInterface from "./GameInterface";
+import { ImageBackground } from "react-native";
 
 /* Global Variables */
 let interval;
@@ -150,7 +151,7 @@ class GamePlay extends Component {
     });
   };
 
-  snowmanMinigame = () => {
+  flashMinigame = () => {
     this.setState({
       flashModal: !this.state.flashModal
     });
@@ -172,13 +173,24 @@ class GamePlay extends Component {
         taps={this.state.taps}
         // Minigame settings
         snowflakesState={this.state.snowFlakesModal}
-        setSnowflakesModal={() => this.snowFlakes}
+        setSnowflakesModal={() =>
+          this.handleMinigameModal(
+            "snowFlakesModal",
+            this.state.snowFlakesModal
+          )
+        }
         duckState={this.state.duckModal}
-        duckModal={() => this.duckMinigame()}
+        duckModal={() =>
+          this.handleMinigameModal("duckModal", this.state.duckModal)
+        }
         snowmanState={this.state.snowmanModal}
-        snowmanModal={() => this.snowmanMinigame}
+        snowmanModal={() =>
+          this.handleMinigameModal("snowmanModal", this.state.snowmanModal)
+        }
         flashState={this.state.flashModal}
-        flashModal={() => this.flashMinigame}
+        flashModal={() =>
+          this.handleMinigameModal("flashModal", this.state.flashModal)
+        }
       />
     );
   }

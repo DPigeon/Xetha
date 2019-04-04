@@ -24,8 +24,8 @@ class FlashMinigame extends PureComponent {
           animationType="slide"
           transparent={false}
           visible={this.props.flashState}
-          onRequestClose={this.props.flashModal()}
-          onDismiss={this.props.flashModal()}
+          onRequestClose={this.props.flashModal}
+          onDismiss={this.props.flashModal}
         >
           <Animated.Image
             onLoad={this.onLoad}
