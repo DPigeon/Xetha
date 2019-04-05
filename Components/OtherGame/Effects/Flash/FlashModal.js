@@ -9,6 +9,10 @@ import {
   Alert,
   TouchableOpacity
 } from "react-native";
+import questions from "./Questions";
+
+const randomNumber = Math.floor(Math.random * 4);
+// Asks a random question in the fifth question.
 
 class FlashMinigame extends PureComponent {
   constructor(props) {
@@ -22,9 +26,12 @@ class FlashMinigame extends PureComponent {
     this.setState({ input: this.state.input });
   };
 
-  checkAnswer = () => {
+  checkAnswer = questionNumber => {
     let { input } = this.state;
-    if (input === "light" || input === "Light") {
+    if (
+      input === questions[questionNumber].answer1 ||
+      input === questions[questionNumber].answer2
+    ) {
       this.setState({ input: "" });
       this.props.flashModal(); // Reset it
     } else Alert.alert("Think more...");
@@ -47,9 +54,7 @@ class FlashMinigame extends PureComponent {
             source={require("../../../../assets/flashBg.jpg")}
             style={styles.container}
           >
-            <Text style={styles.text}>
-              What is the fastest thing on Earth ?
-            </Text>
+            <Text style={styles.text}>{questions[randomNumber].question}</Text>
             <View />
             <View />
             <TextInput
@@ -60,7 +65,7 @@ class FlashMinigame extends PureComponent {
             />
             <TouchableOpacity
               style={{ bottom: -130, left: 10 }}
-              onPress={() => this.checkAnswer()}
+              onPress={() => this.checkAnswer(randomNumber)}
             >
               <Text style={styles.Button}>Answer !</Text>
             </TouchableOpacity>
