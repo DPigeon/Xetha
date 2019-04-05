@@ -23,6 +23,16 @@ const questions = [
     question: "How many lines can you count on an hexagon ?",
     answer1: "6",
     answer2: "six"
+  },
+  {
+    question: "What's 48 - 71 ?",
+    answer1: "-23",
+    answer2: "negative 23"
+  },
+  {
+    question: "Name the right winter sport.",
+    answer1: "snowboarding",
+    answer2: "Snowboarding"
   }
 ];
 
