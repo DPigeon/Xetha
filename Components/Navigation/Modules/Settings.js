@@ -15,9 +15,6 @@ class Settings extends Component {
         <TouchableOpacity>
           <Text style={buttonStyles.Button}>Hard</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={buttonStyles.Button}>Intense</Text>
-        </TouchableOpacity>
       </View>
     );
   }

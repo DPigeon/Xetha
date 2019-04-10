@@ -33,6 +33,11 @@ const questions = [
     question: "Name the right winter sport.",
     answer1: "snowboarding",
     answer2: "Snowboarding"
+  },
+  {
+    question: "Type in 14 in letters.",
+    answer1: "fourteen",
+    answer2: "Fourteen"
   }
 ];
 

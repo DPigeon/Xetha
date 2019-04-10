@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import questions from "./Questions";
 
-const randomNumber = Math.floor(Math.random * 6);
+const randomNumber = Math.floor(Math.random * 7);
 // Asks random questions
 
 class FlashMinigame extends PureComponent {
