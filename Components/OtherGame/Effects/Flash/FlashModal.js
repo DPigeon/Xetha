@@ -11,14 +11,14 @@ import {
 } from "react-native";
 import questions from "./Questions";
 
-const randomNumber = Math.floor(Math.random * 7);
 // Asks random questions
 
 class FlashMinigame extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      input: ""
+      input: "",
+      randomNumber: Math.floor(Math.random() * 7)
     };
   }
 
@@ -32,7 +32,7 @@ class FlashMinigame extends PureComponent {
       input === questions[questionNumber].answer1 ||
       input === questions[questionNumber].answer2
     ) {
-      this.setState({ input: "" });
+      this.setState({ input: "", randomNumber: Math.floor(Math.random() * 7) });
       this.props.flashModal(); // Reset it
     } else Alert.alert("Think more...");
   };
@@ -42,6 +42,9 @@ class FlashMinigame extends PureComponent {
   };
 
   render() {
+    let { randomNumber } = this.state;
+    console.log(randomNumber);
+    let { question } = questions[randomNumber];
     return (
       <View style={styles.container}>
         <Modal
@@ -54,7 +57,7 @@ class FlashMinigame extends PureComponent {
             source={require("../../../../assets/flashBg.jpg")}
             style={styles.container}
           >
-            <Text style={styles.text}>{questions[randomNumber].question}</Text>
+            <Text style={styles.text}>{question}</Text>
             <View />
             <View />
             <TextInput
